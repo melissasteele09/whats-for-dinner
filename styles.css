@@ -4,28 +4,58 @@ COLORS
 teal - #0fb9b1;
 frosted white - rgba(225, 225, 225, .9);
 grey - #95a5a6;
-red - #ee5253
-
+red - #ee5253;
 */
+
 body {
   background-image: url("./assets/burger-friends.jpg");
   background-size: cover;
+  margin: 0px;
+  font-family: "Roboto", sans-serif;
 }
+
 header {
+  background-color: #0fb9b1;
+  display: inline-flex;
+  width: 100%;
+}
+
+#addButton {
+  background-color: rgba(225, 225, 225, .9);
+}
+
+#dinnerOptionsForm {
+  display: flex;
+  align-items: center;
+  float: left;
+  margin-top: 3%;
+  margin-left: 8%;
+  height: 55%;
+  width: 37%;
+  background-color: rgba(225, 225, 225, .9);
+}
+
+#dinnerOptions {
+  margin-left: 5%;
+}
+
+#letsCookButton {
   background-color: #0fb9b1;
 }
 
-form {
-  float: left;
-  background-color: #95a5a6;
-}
-
 #titleDisplay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   float: right;
-  background-color: #95a5a6;
+  margin-top: 3%;
+  margin-right: 8%;
+  height: 55%;
+  width: 37%;
+  background-color: rgba(225, 225, 225, .9);
 }
 
 #potIcon {
-  height: 50%;
+  height: 25%;
   width: auto;
 }
