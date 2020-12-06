@@ -5,28 +5,36 @@
   </head>
   <body>
     <header>
-      <h1>What's for Dinner?</h1>
+      <h1 id="title">What's for Dinner?</h1>
       <button id="addButton" class="buttons" type="button">Add A Recipe</button>
     </header>
-    <form id="dinnerOptionsForm">
-      <div id="dinnerOptions">
-      <h2>What are you looking for?</h2>
-      <input type="radio" value="side" id="side">
-      <label for="side">Side</label>
-      <br>
-      <input type="radio" value="mainDish" id="mainDish">
-      <label for="mainDish">Main Dish</label>
-      <br>
-      <input type="radio" value="dessert" id="dessert">
-      <label for="dessert">Dessert</label>
-      <br>
-      <input type="radio" value="entireMeal" id="entireMeal">
-      <label for="entireMeal">Entire Meal</label>
-      <br>
-      <button id="letsCookButton" class="buttons" type="button">Let's Cook!</button>
-      </div>
+    <form id="dinnerOptionsForm" class="boxes">
+      <section id="dinnerOptions">
+        <h2>What are you looking for?</h2>
+        <div>
+          <input type="radio" value="side" id="side">
+          <label for="side">Side</label>
+        </div>
+        <br>
+        <div>
+          <input type="radio" value="mainDish" id="mainDish">
+          <label for="mainDish">Main Dish</label>
+        </div>
+        <br>
+        <div>
+          <input type="radio" value="dessert" id="dessert">
+          <label for="dessert">Dessert</label>
+        </div>
+        <br>
+        <div>
+          <input type="radio" value="entireMeal" id="entireMeal">
+          <label for="entireMeal">Entire Meal</label>
+        </div>
+        <br>
+        <button id="letsCookButton" class="buttons" type="button">Let's Cook!</button>
+      </section>
     </form>
-    <section id="titleDisplay">
+    <section id="titleDisplay" class="boxes">
       <img id="potIcon" src="./assets/cookpot.svg" alt="Pot icon">
     </section>
   </body>
