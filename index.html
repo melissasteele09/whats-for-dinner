@@ -8,7 +8,8 @@
       <h1>What's for Dinner?</h1>
       <button id="addButton" class="buttons" type="button">Add A Recipe</button>
     </header>
-    <form class="dinnerOptions">
+    <form id="dinnerOptionsForm">
+      <div id="dinnerOptions">
       <h2>What are you looking for?</h2>
       <input type="radio" value="side" id="side">
       <label for="side">Side</label>
@@ -22,7 +23,8 @@
       <input type="radio" value="entireMeal" id="entireMeal">
       <label for="entireMeal">Entire Meal</label>
       <br>
-      <button id="letsCook" class="buttons" type="button">Let's Cook!</button>
+      <button id="letsCookButton" class="buttons" type="button">Let's Cook!</button>
+      </div>
     </form>
     <section id="titleDisplay">
       <img id="potIcon" src="./assets/cookpot.svg" alt="Pot icon">
