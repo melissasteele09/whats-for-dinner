@@ -4,7 +4,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
-    <h1>What's for Dinner? <button class="addButton" type="button">Add A Recipe</button></h1>
+    <header>
+      <h1>What's for Dinner?</h1>
+      <button id="addButton" class="buttons" type="button">Add A Recipe</button>
+    </header>
     <form class="dinnerOptions">
       <h2>What are you looking for?</h2>
       <input type="radio" value="side" id="side">
@@ -19,12 +22,11 @@
       <input type="radio" value="entireMeal" id="entireMeal">
       <label for="entireMeal">Entire Meal</label>
       <br>
-      <button class="letsCook" type="button">Let's Cook!</button>
+      <button id="letsCook" class="buttons" type="button">Let's Cook!</button>
     </form>
-    <section>
-      <img class="potIcon" src="./assets/cookpot.svg" alt="Pot icon">
+    <section id="titleDisplay">
+      <img id="potIcon" src="./assets/cookpot.svg" alt="Pot icon">
     </section>
-
   </body>
   <script type="text/javascript" src="main.js"></script>
 </html>
