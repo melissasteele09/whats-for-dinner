@@ -13,24 +13,16 @@ let desserts = ["Apple Pie", "Lemon Meringue Pie", "Black Forest Cake", "Banana 
 letsCookButton.addEventListener("click", displayFoodOption);
 
 function displayFoodOption() {
-  if(sideButton.checked == true) {
-    randomIndex = Math.floor(Math.random()*sides.length);
-    titleDisplayBox.innerHTML =`${sides[randomIndex]}`
+  if (sideButton.checked == true) {
+    let randomIndex = Math.floor(Math.random() * sides.length);
+    titleDisplayBox.innerHTML = `${sides[randomIndex]}`
+  } else if (mainDishButton.checked == true) {
+    let randomIndex = Math.floor(Math.random() * mainDishes.length);
+    titleDisplayBox.innerHTML = `${mainDishes[randomIndex]}`
+  } else if (dessertButton.checked == true) {
+      let randomIndex = Math.floor(Math.random() * desserts.length);
+      titleDisplayBox.innerHTML = `${desserts[randomIndex]}`
+    } else if (entireMealButton.checked == true) {
+      console.log("ERROR")
     }
-  // else if(mainDishButton.checked == true) {
-  //   for(let i=0; i < mainDishes.length; i++) {
-  //     let randomDish = mainDishes[i];
-  //     titleDisplayBox.innerHTML =`${randomDish}`
-  //   }
-  //   }else if(dessertButton.checked == true) {
-  //   for(let i=0; i < desserts.length; i++) {
-  //     let randomDessert = desserts[i];
-  //     titleDisplayBox.innerHTML =`${randomDessert}`
-  //   }
-  // } else if (entireMealButton.checked == true) {
-  //   console.log("ERROR")
-  // }
-}
-
-// put radio button names into array
-// iterate over array and if selected name is true
+  }
