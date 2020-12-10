@@ -66,7 +66,7 @@ header {
   padding-right: 45px;
 }
 
-#titleDisplay {
+#titleBox {
   justify-content: center;
   align-items: center;
   float: right;
@@ -76,4 +76,4 @@ header {
 #potIcon {
   height: 40%;
   width: auto;
-}
+}   
