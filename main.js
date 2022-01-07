@@ -12,22 +12,37 @@ var dessertOptions = ["Apple Pie", "Lemon Meringue Pie", "Black Forest Cake", "B
 var sideOptionButton = document.querySelector("#sideButton");
 var mainDishOptionButton = document.querySelector("#mainDishButton");
 var dessertOptionButton = document.querySelector("#dessertButton");
+var entireMealOptionButton = document.querySelector("#entireMealButton");
 var cookButton = document.querySelector("#letsCookButton");
 var recipeDisplayDiv = document.querySelector("#recipeDisplayDiv");
 var selectedButton;
+var randomSide;
+var randomMain;
+var randomDessert;
 var random;
 
 cookButton.addEventListener("click", displayRecipe);
 
 function displayRecipe(){
   if(sideOptionButton.checked) {
-    selectedButton = sideOptions;
-  } else if(mainDishOptionButton.checked) {
-    selectedButton = mainDishOptions;
-  } else if(dessertOptionButton.checked) {
-    selectedButton = dessertOptions;
-  }
-    random = Math.floor(Math.random() * selectedButton.length);
+    random = Math.floor(Math.random() * sideOptions.length);
     recipeDisplayDiv.innerHTML =
-    `<h3>You should make:</h3><article>${selectedButton[random]}<article/>`;
+    `<h3 id="suggestionDisplay">You should make:</h3><article>${sideOptions[random]}</article>`;
+  } else if(mainDishOptionButton.checked) {
+    random = Math.floor(Math.random() * mainDishOptions.length);
+    recipeDisplayDiv.innerHTML =
+    `<h3 id="suggestionDisplay">You should make:</h3><article>${mainDishOptions[random]}</article>`;
+  } else if(dessertOptionButton.checked) {
+    random = Math.floor(Math.random() * dessertOptions.length);
+    recipeDisplayDiv.innerHTML =
+    `<h3 id="suggestionDisplay">You should make:</h3><article>${dessertOptions[random]}</article>`;
+  } else if(entireMealOptionButton.checked) {
+    randomSide = Math.floor(Math.random() * sideOptions.length);
+    randomMain = Math.floor(Math.random() * mainDishOptions.length);
+    randomDessert = Math.floor(Math.random() * dessertOptions.length);
+    recipeDisplayDiv.innerHTML =
+    `<h3 id="suggestionDisplay">You should make:</h3><article>${mainDishOptions[randomMain]}
+    with a side of ${sideOptions[randomSide]} and ${dessertOptions[randomDessert]}
+    for dessert!</article>`;
+  }
   };
