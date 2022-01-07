@@ -11,15 +11,23 @@ var dessertOptions = ["Apple Pie", "Lemon Meringue Pie", "Black Forest Cake", "B
 
 var sideOptionButton = document.querySelector("#sideButton");
 var mainDishOptionButton = document.querySelector("#mainDishButton");
-var dessertOptionsButton = document.querySelector("#dessertButton");
+var dessertOptionButton = document.querySelector("#dessertButton");
 var cookButton = document.querySelector("#letsCookButton");
 var recipeDisplayDiv = document.querySelector("#recipeDisplayDiv");
+var selectedButton;
+var random;
 
 cookButton.addEventListener("click", displayRecipe);
 
 function displayRecipe(){
   if(sideOptionButton.checked) {
-    var random = Math.floor(Math.random() * sideOptions.length);
-    recipeDisplayDiv.innerHTML = sideOptions[random];
+    selectedButton = sideOptions;
+  } else if(mainDishOptionButton.checked) {
+    selectedButton = mainDishOptions;
+  } else if(dessertOptionButton.checked) {
+    selectedButton = dessertOptions;
   }
-};
+    random = Math.floor(Math.random() * selectedButton.length);
+    recipeDisplayDiv.innerHTML =
+    `<h3>You should make:</h3><article>${selectedButton[random]}<article/>`;
+  };
