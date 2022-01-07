@@ -1,10 +1,102 @@
 /* font-family: 'Roboto', sans-serif;
-
 COLORS
 teal - #0fb9b1;
 frosted white - rgba(225, 225, 225, .9);
 grey - #95a5a6;
 red - #ee5253
-
 */
 
+body {
+  font-family: "Roboto", sans-serif;
+  background-image: url(assets/burger-friends.jpg);
+  background-size: cover;
+}
+
+header {
+  display: flex;
+  background-color: #0fb9b1;
+  height: 50px;
+}
+
+h1 {
+  font-size: 21px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 13px;
+}
+
+section {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.mainSections {
+  background-color: rgba(225, 225, 225, .9);
+  margin-top: 60px;
+  width: 37%;
+  height: 58%;
+  display: inline-block;
+  display: flex;
+  vertical-align: top;
+}
+
+#menuSelection {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#menuSelectionContent {
+  margin: auto;
+  margin-top: 75px;
+  margin-left: 45px;
+}
+
+#menuButtonsTitle {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+#asterisk {
+  color: #ee5253;
+}
+
+#sideButtonDiv {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#mainDishButtonDiv {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#dessertButtonDiv {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+#letsCookButton {
+  width: 195px;
+  height: 32px;
+  font-size: 13px;
+  text-transform: uppercase;
+  background-color: #0fb9b1;
+  border: none;
+  border-radius: 6px;
+}
+
+#recipeDisplay {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#recipeDisplayDiv {
+margin: auto;
+}
+
+#cookpot {
+  width: 165px;
+  height: 165px;
+  margin: auto;
+}
