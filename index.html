@@ -1,43 +1,46 @@
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="./reset.css">
-    <link rel="stylesheet" href="./styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <title>What's Cookin'</title>
-  </head>
-  <body>
-    <header>
-      <h1>What's for Dinner?</h1>
-    </header>
-    <section>
-      <article id="menuSelection" class="mainSections">
-        <div id="menuSelectionContent">
-          <h2 id="menuButtonsTitle">What are you looking for?<span id="asterisk">*</span></h2>
-          <div id="sideButtonDiv">
-            <input type="radio" value="side" id="sideButton" name="radiobutton"/>
-            <label for="sideButton">Side</label>
-          </div>
-          <div id="mainDishButtonDiv">
-            <input type="radio" id="mainDishButton" value="mainDish" name="radiobutton"/>
-            <label for="mainDishButton">Main Dish</label>
-          </div>
-          <div id="dessertButtonDiv">
-            <input type="radio" id="dessertButton" value="dessert" name="radiobutton"/>
-            <label for="dessertButton">Dessert</label>
-          </div>
-          <div id="entireMealButtonDiv">
-            <input type="radio" id="entireMealButton" value="entireMeal" name="radiobutton"/>
-            <label for="entireMealButton">Entire Meal</label>
-          </div>
-          <button type="button" id="letsCookButton">Let's cook!</button>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="./reset.css">
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <title>What's Cookin'</title>
+</head>
+
+<body>
+  <header>
+    <h1>What's for Dinner?</h1>
+  </header>
+  <section>
+    <article id="menuSelection" class="mainSections">
+      <div id="menuSelectionContent">
+        <h2 id="menuButtonsTitle">What are you looking for?<span id="asterisk">*</span></h2>
+        <div id="sideButtonDiv">
+          <input type="radio" value="side" id="sideButton" name="radiobutton" />
+          <label for="sideButton">Side</label>
         </div>
-      </article>
-      <article id="recipeDisplay" class="mainSections">
-        <div id="recipeDisplayDiv">
-          <img src="assets/cookpot.svg" id="cookpot"/>
+        <div id="mainDishButtonDiv">
+          <input type="radio" id="mainDishButton" value="mainDish" name="radiobutton" />
+          <label for="mainDishButton">Main Dish</label>
         </div>
-      </article>
-    </section>
-  </body>
-  <script type="text/javascript" src="main.js"></script>
+        <div id="dessertButtonDiv">
+          <input type="radio" id="dessertButton" value="dessert" name="radiobutton" />
+          <label for="dessertButton">Dessert</label>
+        </div>
+        <div id="entireMealButtonDiv">
+          <input type="radio" id="entireMealButton" value="entireMeal" name="radiobutton" />
+          <label for="entireMealButton">Entire Meal</label>
+        </div>
+        <button type="button" id="letsCookButton">Let's cook!</button>
+      </div>
+    </article>
+    <article id="recipeDisplay" class="mainSections">
+      <div id="recipeDisplayDiv">
+        <img src="assets/cookpot.svg" id="cookpot" />
+      </div>
+    </article>
+  </section>
+</body>
+<script type="text/javascript" src="main.js"></script>
+
 </html>
