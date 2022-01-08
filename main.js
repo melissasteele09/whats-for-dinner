@@ -26,55 +26,51 @@ var randomDessert;
 var random;
 var clearBttn;
 
-cookButton.addEventListener("click", displayRecipe);
+cookButton.addEventListener("click", selectRecipe);
 
-function displayRecipe() {
+function selectRecipe() {
   if (sideOptionButton.checked) {
-    random = Math.floor(Math.random() * sideOptions.length);
-    recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3>
-      <article class="display">${sideOptions[random]}</article>
-      <div class="clearButtonDiv">
-      <button class="clearButton">Clear</button>
-      </div>`;
-      clearBttn = document.querySelector(".clearButton");
-      clearBttn.addEventListener("click", clearRecipe);
+    showRecipe(sideOptions);
   } else if (mainDishOptionButton.checked) {
-    random = Math.floor(Math.random() * mainDishOptions.length);
-    recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3>
-      <article class="display">${mainDishOptions[random]}</article>
-      <div class="clearButtonDiv">
-      <button class="clearButton">Clear</button>
-      </div>`;
-      clearBttn = document.querySelector(".clearButton");
-      clearBttn.addEventListener("click", clearRecipe);
+    showRecipe(mainDishOptions);
   } else if (dessertOptionButton.checked) {
-    random = Math.floor(Math.random() * dessertOptions.length);
-    recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3>
-      <article class="display">${dessertOptions[random]}</article>
-      <div class="clearButtonDiv">
-      <button class="clearButton">Clear</button>
-      </div>`;
-      clearBttn = document.querySelector(".clearButton");
-      clearBttn.addEventListener("click", clearRecipe);
+    showRecipe(dessertOptions);
   } else if (entireMealOptionButton.checked) {
-    randomSide = Math.floor(Math.random() * sideOptions.length);
-    randomMain = Math.floor(Math.random() * mainDishOptions.length);
-    randomDessert = Math.floor(Math.random() * dessertOptions.length);
-    recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3>
-      <article class="display">${mainDishOptions[randomMain]}
-      with a side of ${sideOptions[randomSide]} and ${dessertOptions[randomDessert]}
-      for dessert!</article>
-      <div class="clearButtonDiv">
-      <button class="clearButton">Clear</button>
-      </div>`;
-      clearBttn = document.querySelector(".clearButton");
-      clearBttn.addEventListener("click", clearRecipe);
+    showEntireMeal();
   }
 };
+
+function showRecipe(recipeType) {
+  random = Math.floor(Math.random() * recipeType.length);
+  recipeDisplayDiv.innerHTML =
+    `<h3 class="suggestionDisplayTitle">You should make:</h3>
+    <article class="display">${recipeType[random]}</article>
+    <div class="clearButtonDiv">
+    <button class="clearButton">Clear</button>
+    </div>`;
+    selectClearButton();
+}
+
+function showEntireMeal() {
+  randomSide = Math.floor(Math.random() * sideOptions.length);
+  randomMain = Math.floor(Math.random() * mainDishOptions.length);
+  randomDessert = Math.floor(Math.random() * dessertOptions.length);
+  recipeDisplayDiv.innerHTML =
+    `<h3 class="suggestionDisplayTitle">You should make:</h3>
+    <article class="display">${mainDishOptions[randomMain]}
+    with a side of ${sideOptions[randomSide]} and ${dessertOptions[randomDessert]}
+    for dessert!</article>
+    <div class="clearButtonDiv">
+    <button class="clearButton">Clear</button>
+    </div>`;
+    selectClearButton();
+}
+
+function selectClearButton() {
+  clearBttn = document.querySelector(".clearButton");
+  clearBttn.addEventListener("click", clearRecipe);
+}
+
 
 function clearRecipe() {
   recipeDisplayDiv.innerHTML =
