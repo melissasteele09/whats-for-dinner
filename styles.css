@@ -77,6 +77,11 @@ section {
   font-size: 18px;
 }
 
+#entireMealButtonDiv {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
 #letsCookButton {
   width: 195px;
   height: 32px;
@@ -93,11 +98,26 @@ section {
 }
 
 #recipeDisplayDiv {
-margin: auto;
+  margin: auto;
 }
 
 #cookpot {
   width: 165px;
   height: 165px;
   margin: auto;
+}
+
+.suggestionDisplayTitle {
+  font-style: italic;
+  text-align: center;
+  margin-bottom: 23px;
+  font-size: 20px;
+}
+
+.display {
+  margin:auto;
+  margin-left: 75px;
+  margin-right: 75px;
+  text-align: center;
+  font-size: 26px;
 }
