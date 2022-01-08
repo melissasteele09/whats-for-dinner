@@ -17,6 +17,7 @@ header {
   display: flex;
   background-color: #0fb9b1;
   height: 50px;
+  position: relative;
 }
 
 h1 {
@@ -24,6 +25,18 @@ h1 {
   margin-top: auto;
   margin-bottom: auto;
   margin-left: 13px;
+}
+
+#addRecipeBttn {
+  position: absolute;
+  text-transform: uppercase;
+  top: 9px;
+  right: 20px;
+  height: 32px;
+  width: 104px;
+  font-size: 13px;
+  border: none;
+  border-radius: 6px;
 }
 
 section {
