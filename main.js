@@ -30,7 +30,7 @@ function displayRecipe() {
   if (sideOptionButton.checked) {
     random = Math.floor(Math.random() * sideOptions.length);
     recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3><article class="display">${sideOptions[random]}</article>`;
+      `<h3 class="suggestionDisplayTitle">You should make:</h3><article class="display">${sideOptions[random]}</article><button id="clearButton">Clear</button>`;
   } else if (mainDishOptionButton.checked) {
     random = Math.floor(Math.random() * mainDishOptions.length);
     recipeDisplayDiv.innerHTML =
