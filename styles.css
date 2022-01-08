@@ -11,6 +11,7 @@ body {
   font-family: "Roboto", sans-serif;
   background-image: url(assets/burger-friends.jpg);
   background-size: cover;
+  position: relative;
 }
 
 header {
@@ -148,4 +149,38 @@ section {
   background-color: #95a5a6;
   border: none;
   border-radius: 6px;
+}
+
+#addRecipeForm {
+    display: flex;
+    background-color: rgba(225, 225, 225, .9);
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+
+.addRecipeLabels {
+font-size: 18px;
+margin-left: 32px;
+margin-top: 15px;
+}
+
+.addRecipeInput {
+  margin-top: 13px;
+  margin-left: 10px;
+  height: 26px;
+  width: 175px;
+}
+
+#addNewButtn {
+  margin-top: 13px;
+  margin-left: 30px;
+  height: 26px;
+  width: 88px;
+  background-color: #0fb9b1;
+  border: none;
+  border-radius: 6px;
+  text-transform: uppercase;
 }
