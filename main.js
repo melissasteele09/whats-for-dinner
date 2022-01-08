@@ -18,6 +18,7 @@ var dessertOptionButton = document.querySelector("#dessertButton");
 var entireMealOptionButton = document.querySelector("#entireMealButton");
 var cookButton = document.querySelector("#letsCookButton");
 var recipeDisplayDiv = document.querySelector("#recipeDisplayDiv");
+var addRecipeButton = document.querySelector("#addRecipeBttn");
 
 var selectedButton;
 var randomSide;
@@ -27,6 +28,7 @@ var random;
 var clearBttn;
 
 cookButton.addEventListener("click", selectRecipe);
+addRecipeButton.addEventListener("click", showNewRecipeForm);
 
 function selectRecipe() {
   if (sideOptionButton.checked) {
@@ -44,6 +46,8 @@ function selectRecipe() {
 };
 
 function showRecipe(recipeType) {
+  asterisk.innerHTML =
+    ``;
   random = Math.floor(Math.random() * recipeType.length);
   recipeDisplayDiv.innerHTML =
     `<h3 class="suggestionDisplayTitle">You should make:</h3>
@@ -55,6 +59,8 @@ function showRecipe(recipeType) {
 }
 
 function showEntireMeal() {
+  asterisk.innerHTML =
+    ``;
   randomSide = Math.floor(Math.random() * sideOptions.length);
   randomMain = Math.floor(Math.random() * mainDishOptions.length);
   randomDessert = Math.floor(Math.random() * dessertOptions.length);
@@ -78,3 +84,14 @@ function clearRecipe() {
   recipeDisplayDiv.innerHTML =
     `<img src="assets/cookpot.svg" class="cookpot" />`
 };
+
+function showNewRecipeForm() {
+  addRecipeFormDiv.innerHTML =
+  `  <form id="addRecipeForm">
+      <label for="recipeTypeInput" class="addRecipeLabels">Recipe Type:</label>
+      <input type="text" id="recipeTypeInput" class="addRecipeInput"/>
+      <label for="recipeNameInput" class="addRecipeLabels">Recipe Name:</label>
+      <input type="text" id="recipeNameInput" class="addRecipeInput"/>
+      <button id="saveNewButtn">Add New</button>
+    </form>`
+}
