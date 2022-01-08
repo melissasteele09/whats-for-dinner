@@ -37,6 +37,9 @@ function selectRecipe() {
     showRecipe(dessertOptions);
   } else if (entireMealOptionButton.checked) {
     showEntireMeal();
+  } else {
+    asterisk.innerHTML =
+      `*`
   }
 };
 
@@ -48,7 +51,7 @@ function showRecipe(recipeType) {
     <div class="clearButtonDiv">
     <button class="clearButton">Clear</button>
     </div>`;
-    selectClearButton();
+  selectClearButton();
 }
 
 function showEntireMeal() {
@@ -58,12 +61,12 @@ function showEntireMeal() {
   recipeDisplayDiv.innerHTML =
     `<h3 class="suggestionDisplayTitle">You should make:</h3>
     <article class="display">${mainDishOptions[randomMain]}
-    with a side of ${sideOptions[randomSide]} and ${dessertOptions[randomDessert]}
-    for dessert!</article>
+    with a side of ${sideOptions[randomSide]} and
+    ${dessertOptions[randomDessert]} for dessert!</article>
     <div class="clearButtonDiv">
     <button class="clearButton">Clear</button>
     </div>`;
-    selectClearButton();
+  selectClearButton();
 }
 
 function selectClearButton() {
@@ -71,8 +74,7 @@ function selectClearButton() {
   clearBttn.addEventListener("click", clearRecipe);
 }
 
-
 function clearRecipe() {
   recipeDisplayDiv.innerHTML =
-  `<img src="assets/cookpot.svg" class="cookpot" />`
+    `<img src="assets/cookpot.svg" class="cookpot" />`
 };
