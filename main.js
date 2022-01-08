@@ -30,22 +30,38 @@ function displayRecipe() {
   if (sideOptionButton.checked) {
     random = Math.floor(Math.random() * sideOptions.length);
     recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3><article class="display">${sideOptions[random]}</article><button id="clearButton">Clear</button>`;
+      `<h3 class="suggestionDisplayTitle">You should make:</h3>
+      <article class="display">${sideOptions[random]}</article>
+      <div class="clearButtonDiv">
+      <button class="clearButton">Clear</button>
+      </div>`;
   } else if (mainDishOptionButton.checked) {
     random = Math.floor(Math.random() * mainDishOptions.length);
     recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3><article class="display">${mainDishOptions[random]}</article>`;
+      `<h3 class="suggestionDisplayTitle">You should make:</h3>
+      <article class="display">${mainDishOptions[random]}</article>
+      <div class="clearButtonDiv">
+      <button class="clearButton">Clear</button>
+      </div>`;
   } else if (dessertOptionButton.checked) {
     random = Math.floor(Math.random() * dessertOptions.length);
     recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3><article class="display">${dessertOptions[random]}</article>`;
+      `<h3 class="suggestionDisplayTitle">You should make:</h3>
+      <article class="display">${dessertOptions[random]}</article>
+      <div class="clearButtonDiv">
+      <button class="clearButton">Clear</button>
+      </div>`;
   } else if (entireMealOptionButton.checked) {
     randomSide = Math.floor(Math.random() * sideOptions.length);
     randomMain = Math.floor(Math.random() * mainDishOptions.length);
     randomDessert = Math.floor(Math.random() * dessertOptions.length);
     recipeDisplayDiv.innerHTML =
-      `<h3 class="suggestionDisplayTitle">You should make:</h3><article class="display">${mainDishOptions[randomMain]}
+      `<h3 class="suggestionDisplayTitle">You should make:</h3>
+      <article class="display">${mainDishOptions[randomMain]}
       with a side of ${sideOptions[randomSide]} and ${dessertOptions[randomDessert]}
-      for dessert!</article>`;
+      for dessert!</article>
+      <div class="clearButtonDiv">
+      <button class="clearButton">Clear</button>
+      </div>`;
   }
 };
