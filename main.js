@@ -18,11 +18,13 @@ var dessertOptionButton = document.querySelector("#dessertButton");
 var entireMealOptionButton = document.querySelector("#entireMealButton");
 var cookButton = document.querySelector("#letsCookButton");
 var recipeDisplayDiv = document.querySelector("#recipeDisplayDiv");
+
 var selectedButton;
 var randomSide;
 var randomMain;
 var randomDessert;
 var random;
+var clearBttn;
 
 cookButton.addEventListener("click", displayRecipe);
 
@@ -35,6 +37,8 @@ function displayRecipe() {
       <div class="clearButtonDiv">
       <button class="clearButton">Clear</button>
       </div>`;
+      clearBttn = document.querySelector(".clearButton");
+      clearBttn.addEventListener("click", clearRecipe);
   } else if (mainDishOptionButton.checked) {
     random = Math.floor(Math.random() * mainDishOptions.length);
     recipeDisplayDiv.innerHTML =
@@ -43,6 +47,8 @@ function displayRecipe() {
       <div class="clearButtonDiv">
       <button class="clearButton">Clear</button>
       </div>`;
+      clearBttn = document.querySelector(".clearButton");
+      clearBttn.addEventListener("click", clearRecipe);
   } else if (dessertOptionButton.checked) {
     random = Math.floor(Math.random() * dessertOptions.length);
     recipeDisplayDiv.innerHTML =
@@ -51,6 +57,8 @@ function displayRecipe() {
       <div class="clearButtonDiv">
       <button class="clearButton">Clear</button>
       </div>`;
+      clearBttn = document.querySelector(".clearButton");
+      clearBttn.addEventListener("click", clearRecipe);
   } else if (entireMealOptionButton.checked) {
     randomSide = Math.floor(Math.random() * sideOptions.length);
     randomMain = Math.floor(Math.random() * mainDishOptions.length);
@@ -63,5 +71,12 @@ function displayRecipe() {
       <div class="clearButtonDiv">
       <button class="clearButton">Clear</button>
       </div>`;
+      clearBttn = document.querySelector(".clearButton");
+      clearBttn.addEventListener("click", clearRecipe);
   }
+};
+
+function clearRecipe() {
+  recipeDisplayDiv.innerHTML =
+  `<img src="assets/cookpot.svg" class="cookpot" />`
 };
