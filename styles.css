@@ -95,6 +95,7 @@ section {
 #recipeDisplay {
   margin-left: auto;
   margin-right: auto;
+  position: relative;
 }
 
 #recipeDisplayDiv {
@@ -120,4 +121,18 @@ section {
   margin-right: 75px;
   text-align: center;
   font-size: 26px;
+}
+
+.clearButton {
+  position: absolute;
+  bottom: 25px;
+  right: 30px;
+  height: 32px;
+  width: 75px;
+  font-size: 13px;
+  color: white;
+  text-transform: uppercase;
+  background-color: #95a5a6;
+  border: none;
+  border-radius: 6px;
 }
