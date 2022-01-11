@@ -32,6 +32,8 @@ var recipeType;
 var recipeName;
 var saveNewBttn;
 var enteredRecipe;
+var recipeTypeError;
+var recipeNameError;
 
 cookButton.addEventListener("click", selectRecipe);
 addRecipeButton.addEventListener("click", showNewRecipeForm);
@@ -96,8 +98,10 @@ function showNewRecipeForm() {
     `  <form id="addRecipeForm">
       <label for="recipeTypeInput" class="addRecipeLabels">Recipe Type:</label>
       <input type="text" id="recipeTypeInput" class="addRecipeInput"/>
+      <span id="typeError"></span>
       <label for="recipeNameInput" class="addRecipeLabels">Recipe Name:</label>
       <input type="text" id="recipeNameInput" class="addRecipeInput"/>
+      <span id="nameError"></span>
       <button id="saveNewButton" type="button">Add New</button>
     </form>`;
   targetNewRecipeForm();
@@ -107,14 +111,23 @@ function targetNewRecipeForm() {
   recipeType = document.querySelector("#recipeTypeInput");
   recipeName = document.querySelector("#recipeNameInput");
   saveNewBttn = document.querySelector("#saveNewButton");
+  recipeTypeError = document.querySelector("#typeError");
+  recipeNameError = document.querySelector("#nameError");
   saveNewButton.addEventListener("click", saveNewRecipe);
 };
 
 function saveNewRecipe() {
   if (recipeType.value === "" || recipeName.value === "") {
-    console.log("missing recipe type or name!");
+    recipeTypeError.innerHTML =
+    `*`;
+    recipeNameError.innerHTML =
+    `*`
   } else if (recipeTypes.includes(recipeType.value)) {
-    if(recipeType.value === "Side") {
+    if (recipeType.value === "Side") {
+      recipeTypeError.innerHTML =
+      ``;
+      recipeNameError.innerHTML =
+      ``
       sides.push(recipeName.value);
       recipeDisplayDiv.innerHTML =
         `<h3 class="suggestionDisplayTitle">You should make:</h3>
@@ -126,6 +139,10 @@ function saveNewRecipe() {
       recipeName.value = "";
       selectClearButton();
     } else if (recipeType.value === "Main Dish") {
+      recipeTypeError.innerHTML =
+      ``;
+      recipeNameError.innerHTML =
+      ``
       mainDishes.push(recipeName.value);
       recipeDisplayDiv.innerHTML =
         `<h3 class="suggestionDisplayTitle">You should make:</h3>
@@ -133,10 +150,14 @@ function saveNewRecipe() {
         <div class="clearButtonDiv">
         <button class="clearButton">Clear</button>
         </div>`;
-        recipeType.value = "";
-        recipeName.value = "";
+      recipeType.value = "";
+      recipeName.value = "";
       selectClearButton();
     } else if (recipeType.value === "Dessert") {
+      recipeTypeError.innerHTML =
+      ``;
+      recipeNameError.innerHTML =
+      ``
       desserts.push(recipeName.value);
       recipeDisplayDiv.innerHTML =
         `<h3 class="suggestionDisplayTitle">You should make:</h3>
@@ -144,9 +165,14 @@ function saveNewRecipe() {
         <div class="clearButtonDiv">
         <button class="clearButton">Clear</button>
         </div>`;
-        recipeType.value = "";
-        recipeName.value = "";
+      recipeType.value = "";
+      recipeName.value = "";
       selectClearButton();
     }
-  } 
+  } else if (!recipeTypes.includes(recipeType.value)) {
+    recipeTypeError.innerHTML =
+    `*`;
+    recipeNameError.innerHTML =
+    `*`
+  }
 };
