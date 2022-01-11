@@ -1,16 +1,18 @@
-var sideOptions = ["Miso Glazed Carrots", "Coleslaw", "Garden Salad", "Crispy Potatoes", "Sweet Potato Tots",
+var sides = ["Miso Glazed Carrots", "Coleslaw", "Garden Salad", "Crispy Potatoes", "Sweet Potato Tots",
   "Coconut Rice", "Caeser Salad", "Shrimp Summer Rolls", "Garlic Butter Mushrooms", "Hush Puppies"
 ];
 
-var mainDishOptions = ["Spaghetti and Meatballs", "Pineapple Chicken", "Shakshuka", "Thai Yellow Curry",
+var mainDishes = ["Spaghetti and Meatballs", "Pineapple Chicken", "Shakshuka", "Thai Yellow Curry",
   "Bibimbap", "Chicken Parmesean", "Butternut Squash Soup", "BBQ Chicken Burgers", "Ramen",
   "Empanadas", "Chicken Fried Rice", "Sheet Pan Fajitas", "Margarita Pizza"
 ];
 
-var dessertOptions = ["Apple Pie", "Lemon Meringue Pie", "Black Forest Cake", "Banana Bread", "Peach Cobbler",
+var desserts = ["Apple Pie", "Lemon Meringue Pie", "Black Forest Cake", "Banana Bread", "Peach Cobbler",
   "Cheesecake", "Funfetti Cake", "Baklava", "Flan", "Macarons", "Macaroons", "Chocolate Cupcakes", "Pavlova", "Pumpkin Pie",
   "Key Lime Pie", "Tart Tatin", "Croissants", "Eclairs"
 ];
+
+var recipeTypes =["Side", "Main Dish", "Dessert"];
 
 var sideOptionButton = document.querySelector("#sideButton");
 var mainDishOptionButton = document.querySelector("#mainDishButton");
@@ -26,17 +28,21 @@ var randomMain;
 var randomDessert;
 var random;
 var clearBttn;
+var recipeType;
+var recipeName;
+var saveNewBttn;
+var enteredRecipe;
 
 cookButton.addEventListener("click", selectRecipe);
 addRecipeButton.addEventListener("click", showNewRecipeForm);
 
 function selectRecipe() {
   if (sideOptionButton.checked) {
-    showRecipe(sideOptions);
+    showRecipe(sides);
   } else if (mainDishOptionButton.checked) {
-    showRecipe(mainDishOptions);
+    showRecipe(mainDishes);
   } else if (dessertOptionButton.checked) {
-    showRecipe(dessertOptions);
+    showRecipe(desserts);
   } else if (entireMealOptionButton.checked) {
     showEntireMeal();
   } else {
@@ -61,14 +67,14 @@ function showRecipe(recipeType) {
 function showEntireMeal() {
   asterisk.innerHTML =
     ``;
-  randomSide = Math.floor(Math.random() * sideOptions.length);
-  randomMain = Math.floor(Math.random() * mainDishOptions.length);
-  randomDessert = Math.floor(Math.random() * dessertOptions.length);
+  randomSide = Math.floor(Math.random() * sides.length);
+  randomMain = Math.floor(Math.random() * mainDishes.length);
+  randomDessert = Math.floor(Math.random() * desserts.length);
   recipeDisplayDiv.innerHTML =
     `<h3 class="suggestionDisplayTitle">You should make:</h3>
-    <article class="display">${mainDishOptions[randomMain]}
-    with a side of ${sideOptions[randomSide]} and
-    ${dessertOptions[randomDessert]} for dessert!</article>
+    <article class="display">${mainDishes[randomMain]}
+    with a side of ${sides[randomSide]} and
+    ${desserts[randomDessert]} for dessert!</article>
     <div class="clearButtonDiv">
     <button class="clearButton">Clear</button>
     </div>`;
@@ -87,11 +93,60 @@ function clearRecipe() {
 
 function showNewRecipeForm() {
   addRecipeFormDiv.innerHTML =
-  `  <form id="addRecipeForm">
+    `  <form id="addRecipeForm">
       <label for="recipeTypeInput" class="addRecipeLabels">Recipe Type:</label>
       <input type="text" id="recipeTypeInput" class="addRecipeInput"/>
       <label for="recipeNameInput" class="addRecipeLabels">Recipe Name:</label>
       <input type="text" id="recipeNameInput" class="addRecipeInput"/>
-      <button id="saveNewButtn">Add New</button>
-    </form>`
-}
+      <button id="saveNewButton" type="button">Add New</button>
+    </form>`;
+  targetNewRecipeForm();
+};
+
+function targetNewRecipeForm() {
+  recipeType = document.querySelector("#recipeTypeInput");
+  recipeName = document.querySelector("#recipeNameInput");
+  saveNewBttn = document.querySelector("#saveNewButton");
+  saveNewButton.addEventListener("click", saveNewRecipe);
+};
+
+function saveNewRecipe() {
+  if (recipeType.value === "" || recipeName.value === "") {
+    console.log("missing recipe type or name!");
+  } else if (recipeTypes.includes(recipeType.value)) {
+    if(recipeType.value === "Side") {
+      sides.push(recipeName.value);
+      recipeDisplayDiv.innerHTML =
+        `<h3 class="suggestionDisplayTitle">You should make:</h3>
+        <article class="display">${recipeName.value}</article>
+        <div class="clearButtonDiv">
+        <button class="clearButton">Clear</button>
+        </div>`;
+      recipeType.value = "";
+      recipeName.value = "";
+      selectClearButton();
+    } else if (recipeType.value === "Main Dish") {
+      mainDishes.push(recipeName.value);
+      recipeDisplayDiv.innerHTML =
+        `<h3 class="suggestionDisplayTitle">You should make:</h3>
+        <article class="display">${recipeName.value}</article>
+        <div class="clearButtonDiv">
+        <button class="clearButton">Clear</button>
+        </div>`;
+        recipeType.value = "";
+        recipeName.value = "";
+      selectClearButton();
+    } else if (recipeType.value === "Dessert") {
+      desserts.push(recipeName.value);
+      recipeDisplayDiv.innerHTML =
+        `<h3 class="suggestionDisplayTitle">You should make:</h3>
+        <article class="display">${recipeName.value}</article>
+        <div class="clearButtonDiv">
+        <button class="clearButton">Clear</button>
+        </div>`;
+        recipeType.value = "";
+        recipeName.value = "";
+      selectClearButton();
+    }
+  } 
+};
